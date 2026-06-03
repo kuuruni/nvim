@@ -1,8 +1,30 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    picker = { enabled = true },
-    explorer = { enabled = true },
+    picker = {
+      enabled = true,
+      hidden = false,
+      ignored = true,
+      exclude = {
+        "node_modules",
+      },
+      sources = {
+        explorer = {
+          hidden = false,
+          ignored = true,
+        },
+
+        files = {
+          hidden = false,
+          ignored = true,
+        },
+
+        grep = {
+          hidden = false,
+          ignored = true,
+        },
+      },
+    },
     dashboard = {
       enabled = true,
       preset = {
