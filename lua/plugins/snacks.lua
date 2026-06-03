@@ -12,6 +12,7 @@ return {
         explorer = {
           hidden = false,
           ignored = true,
+          auto_close = false,
         },
 
         files = {
@@ -23,6 +24,15 @@ return {
           hidden = false,
           ignored = true,
         },
+
+        buffer = {
+          current = false,
+        },
+
+        recent = {
+          filter = { cwd = true },
+        },
+      },
       },
     },
     dashboard = {
