@@ -33,8 +33,8 @@ return {
           filter = { cwd = true },
         },
       },
-      },
     },
+
     dashboard = {
       enabled = true,
       preset = {
