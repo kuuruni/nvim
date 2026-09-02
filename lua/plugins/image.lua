@@ -1,6 +1,7 @@
 return {
   {
     "3rd/image.nvim",
+    ft = { "markdown", "vimwiki" },
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

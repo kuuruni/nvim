@@ -9,7 +9,6 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "tsgo",
         "pyright",
         "gopls",
         "rust_analyzer",
@@ -23,41 +22,53 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" },
-              },
-              workspace = {
-                checkThirdParty = false,
-              },
+    opts = function(_, opts)
+      local configs = require("lspconfig.configs")
+      if not configs.tsgo then
+        configs.tsgo = {
+          default_config = {
+            cmd = { "tsgo", "lsp", "--stdio" },
+            filetypes = {
+              "javascript",
+              "javascriptreact",
+              "javascript.jsx",
+              "typescript",
+              "typescriptreact",
+              "typescript.tsx",
+            },
+            root_dir = require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json", "package.json", ".git"),
+            single_file_support = true,
+          },
+        }
+      end
+
+      opts.servers = opts.servers or {}
+      opts.servers.lua_ls = {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              checkThirdParty = false,
             },
           },
         },
-        tsgo = {},
-        pyright = {},
-        gopls = {},
-        rust_analyzer = {},
-        clangd = {},
-        vue_ls = {},
-        svelte = {},
-        tailwindcss = {
-          filetypes = {
-            "html",
-            "css",
-            "scss",
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "vue",
-            "svelte",
-          },
+      }
+      opts.servers.tsgo = {}
+      opts.servers.tailwindcss = {
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "vue",
+          "svelte",
         },
-      },
-    },
+      }
+    end,
   },
 }

@@ -45,8 +45,8 @@ return {
             █                  
         ]],
         keys = {
-          { icon = "󰍉 ", key = "f", desc = "Find File", action = ":Telescope find_files" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":Telescope oldfiles" },
+          { icon = "󰍉 ", key = "f", desc = "Find File", action = function() Snacks.picker.files() end },
+          { icon = " ", key = "r", desc = "Recent Files", action = function() Snacks.picker.recent() end },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           {
             icon = "󰈔 ",

@@ -36,13 +36,17 @@ require("lazy").setup({
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
+    cache = {
+      enabled = true,
+    },
     rtp = {
-      -- disable some rtp plugins
+      -- disable some rtp plugins for faster startup
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "rplugin",
         "tarPlugin",
         "tohtml",
         "tutor",
