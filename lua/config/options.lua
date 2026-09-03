@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.g.lazyvim_ts_lsp = "tsgo"
+vim.g.lazyvim_inlay_hints = { enabled = false }

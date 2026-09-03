@@ -42,6 +42,7 @@ return {
         }
       end
 
+      opts.inlay_hints = { enabled = false }
       opts.servers = opts.servers or {}
       opts.servers.lua_ls = {
         settings = {
