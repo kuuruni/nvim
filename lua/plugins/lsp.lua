@@ -56,7 +56,9 @@ return {
           },
         },
       }
-      opts.servers.tsgo = {}
+      if vim.g.lazyvim_ts_lsp == "tsgo" then
+        opts.servers.tsgo = {}
+      end
       opts.servers.tailwindcss = {
         filetypes = {
           "html",
